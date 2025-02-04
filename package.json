@@ -1,0 +1,41 @@
+{
+  "name": "assignment-mars-rover",
+  "version": "1.0.0",
+  "description": "Nandos take home assignment - Mars Rover",
+  "main": "index.ts",
+  "scripts": {
+    "preinstall": "npx only-allow pnpm",
+    "server": "npx ts-node src/server/server.ts",
+    "rover": "npx ts-node src/index.ts",
+    "start": "pnpm run server & pnpm run rover",
+    "test": "npx vitest"
+  },
+  "keywords": [
+    "nandos",
+    "mars",
+    "rover"
+  ],
+  "author": "Olayinka Otuniyi",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/express": "^5.0.0",
+    "@types/node": "^22.13.0",
+    "typescript": "^5.7.3",
+    "vitest": "^3.0.5"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}
