@@ -14,6 +14,10 @@ body {
         text-align: center;
     }
 
+    #robot-img {
+        height: 200px;
+    }
+
     #rover-grid {
         display: grid;
         width: 600px;

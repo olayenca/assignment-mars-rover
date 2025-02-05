@@ -36,6 +36,8 @@ const readInput = readline.createInterface({input, output});
         .replace('darwin', '')
         .replace(/win32|linux/, 'xdg-')}open "${url}"`));
 
+    console.log(`Rover final position: ${output}. See output in the browser at ${url}`);
+
     readInput.close();
 })();
 

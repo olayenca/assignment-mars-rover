@@ -59,7 +59,7 @@ The output for each rover should be its final co-ordinates and heading.
 * Executes the instructions for each rover sequentially.
 * Outputs the final positions of the rovers.
 * The program is tested with the provided test input.
-
+![Mars-rover-challenge.png](Mars-rover-challenge.png)
 #### Project Structure
 * `src` contains the source code written in typescript
 * `test` contains the test code using vitest
@@ -68,5 +68,8 @@ The output for each rover should be its final co-ordinates and heading.
 `pnpm install` to install the dependencies
 `pnpm run test` to run the tests
 `pnpm run server` to run the program with the provided test input in the browser
-`pnpm run rover` to run the program with the provided test input in the command line
+`pnpm run rover` to run the program with the provided test input in the command line but can be visualized in the browser once output is resolved
+`http://localhost:3000/rover?plateau={?}&route={?}&position={?}`
+
+```
 

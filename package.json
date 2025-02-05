@@ -5,10 +5,12 @@
   "main": "index.ts",
   "scripts": {
     "preinstall": "npx only-allow pnpm",
+    "prepare": "husky",
     "server": "npx ts-node src/server/server.ts",
     "rover": "npx ts-node src/index.ts",
     "start": "pnpm run server & pnpm run rover",
-    "test": "npx vitest"
+    "test": "npx vitest --no-watch",
+    "audit": "audit-ci --config ./audit-ci.json5"
   },
   "keywords": [
     "nandos",
@@ -17,12 +19,6 @@
   ],
   "author": "Olayinka Otuniyi",
   "license": "ISC",
-  "devDependencies": {
-    "@types/express": "^5.0.0",
-    "@types/node": "^22.13.0",
-    "typescript": "^5.7.3",
-    "vitest": "^3.0.5"
-  },
   "browserslist": {
     "production": [
       ">0.2%",
@@ -34,6 +30,14 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.0",
+    "@types/node": "^22.13.0",
+    "audit-ci": "^7.1.0",
+    "husky": "^9.1.7",
+    "typescript": "^5.7.3",
+    "vitest": "^3.0.5"
   },
   "dependencies": {
     "express": "^4.21.2"

@@ -1,24 +1,24 @@
-import express from 'express';
+import express, {Request, Response, Express} from 'express';
 import path from 'path';
 
-const app = express();
-const port = 3000;
+const app: Express = express();
+const port: number = 3000;
 
 app.use(express.static(path.join(__dirname, '../public')));
 
-app.get('/rover', (req, res) => {
+app.get('/rover', (req: Request, res: Response) => {
     try {
         if (!req.query.plateau || !req.query.route || !req.query.position) {
-            throw new Error('Invalid query parameters');
+            res.status(400).send('Invalid query parameters');
+            return;
         }
 
         res.sendFile(path.join(__dirname, '../public', '/index.html'));
     } catch (error) {
-        res.status(404)
-        res.sendFile(path.join(__dirname, '../public', '/error.html'))
+        res.status(500).sendFile(path.join(__dirname, '../public', '/error.html'));
     }
 });
 
 app.listen(port, () => {
-    console.log(`Server is running at http://localhost:${port}/\n`);
+    console.log(`Server is running at http://localhost:${port}/`);
 });
