@@ -1,0 +1,59 @@
+body {
+    display: flex;
+    justify-content: center;
+    justify-self: center;
+    font-family: 'Roboto', sans-serif;
+    margin: 2px;
+    height: 90%;
+    width: 90%;
+    border: 2px solid black;
+}
+
+#MarsRover {
+    h1 {
+        text-align: center;
+    }
+
+    #robot-img {
+        height: 200px;
+    }
+
+    #rover-grid {
+        display: grid;
+        width: 600px;
+        height: 600px;
+        border: 1px solid #000;
+        grid-gap: 2px;
+    }
+
+    .rover-pos {
+        background: #ae7b7b;
+        justify-content: center;
+        display: flex;
+        align-items: center;
+
+        img {
+            filter: drop-shadow(8px 4px 2px black);
+
+            &:hover {
+                height: 100px;
+                width: 100px;
+            }
+        }
+
+        &:hover {
+            background: #933232 !important;
+        }
+    }
+
+    .cell {
+
+        &:hover {
+            background: gray;
+        }
+    }
+
+    #rover-grid > * {
+        border: 1px solid gray;
+    }
+}

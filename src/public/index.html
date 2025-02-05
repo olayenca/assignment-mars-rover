@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="icon" type="image/x-icon" href="./favicon.ico">
+        <link rel="stylesheet" href="./styles.css">
+        <title>Mars Rover technical Challenge</title>
+    </head>
+    <body>
+        <div id="MarsRover">
+            <h1>Mars Rover technical Challenge</h1>
+            <div id="rover-grid"></div>
+            <div>
+                <h2>Test Inputs:</h2>
+                <ul>
+                    <li id="plateau">Plateau: 5, 5 </li>
+                    <li id="route">Route: ?</li>
+                    <li id="new-position">New Position: ?</li>
+                </ul>
+            </div>
+        </div>
+        <script>
+            console.log('Hello Mars Rover');
+            const urlquery = new URLSearchParams(window.location.search);
+            const plateau = [...urlquery.get('plateau')];
+            const newPosition = urlquery.get('position');
+            const route = urlquery.get('route');
+            const positionArr = [...newPosition];
+
+            const roverGrid = document.getElementById("rover-grid");
+            roverGrid.style.gridTemplateColumns = `repeat(${plateau[0]}, 1fr)`;
+            roverGrid.style.gridTemplateRows = `repeat(${plateau[1]}, 1fr)`;
+
+            const grid = document.querySelector('#rover-grid');
+            const img = new Image(80,80);
+            img.src = './img.png';
+            img.alt = `image of a mars rover`
+            img.title = `Rover is in position ${[...positionArr]}`
+
+            for (let i = plateau[0]-1; i >= 0; i--) {
+                for (let j = 0; j < plateau[1]; j++) {
+                    const cell = document.createElement('div');
+                    cell.classList.add('cell');
+
+                    if (j === parseInt(positionArr[0])-1 && i === parseInt(positionArr[1])-1) {
+                        cell.classList.add('rover-pos');
+                        cell.appendChild(img);
+                    }
+                    grid.appendChild(cell);
+                }
+            }
+
+            document.getElementById('route').innerHTML = `Route: ${route}`;
+            document.getElementById('new-position').innerHTML = `New Position: ${newPosition}`;
+        </script>
+    </body>
+</html>
